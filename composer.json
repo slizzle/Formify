@@ -1,0 +1,23 @@
+{
+    "name": "clayton/formify",
+    "description": "",
+    "authors": [
+        {
+            "name": "Clayton Salazar",
+            "email": "me@claytonsalazar.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Clayton\\Formify\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
