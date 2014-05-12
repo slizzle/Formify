@@ -19,6 +19,14 @@ class FormifyServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('clayton/formify');
+		
+		$this->app['clayton.formify']->start();
+
+		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+/*
+		$loader->alias('Field', 'App\Modules\Form\Models\Field');
+		$loader->alias('Formify', 'App\Modules\Form\Facades\Formify');
+*/
 	}
 
 	/**
@@ -29,6 +37,15 @@ class FormifyServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		//
+		\App::bind('clayton.field', function()
+		{
+			return new Models\Field;
+		});
+
+		\App::singleton('clayton.formify', function()
+		{
+			return new FormManager;	
+		});
 	}
 
 	/**
